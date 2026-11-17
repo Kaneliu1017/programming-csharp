@@ -108,7 +108,7 @@ static void AddTen(int[] arr)
 //          count matching a condition, linear search (return -1),
 //          append (% Length), rotate left / right
 // ============================================================
-static void L03_ClassicAlgorithms()
+ static void L03_ClassicAlgorithms()
 {
     Console.WriteLine("--- L03 · Classic algorithms ---");
 
@@ -137,31 +137,61 @@ static void L03_ClassicAlgorithms()
 
 static int Sum(int[] arr)
 {
-    // TODO
-    return 0;
+    int total = 0;
+    foreach (int n in arr)
+    {
+        total += n;
+    }
+    return total;
 }
 
 static double Average(int[] arr)
 {
     // TODO  (cast: (double)Sum(arr) / arr.Length)
-    return 0;
+    if (arr.Length == 0) return 0; // avoid division by zero
+    return (double)Sum(arr) / arr.Length;  
+    
 }
 
 static (int value, int index) MaxWithPosition(int[] arr)
 {
     // TODO
-    return (0, 0);
+    int max = arr[0];
+    int pos = 0;
+    for (int i = 1; i < arr.Length; i++)
+    {
+        if (arr[i] > max)
+        {
+            max = arr[i];
+            pos = i;
+        }
+    }
+    return (max, pos);
 }
 
 static int CountGreaterThan(int[] arr, int threshold)
 {
-    // TODO
-    return 0;
+    int count = 0;
+    foreach (int n in arr)
+    {
+        if (n > threshold)
+        {
+            count++;
+        }
+    }
+    return count;
 }
 
 static int LinearSearch(int[] arr, int target)
 {
     // TODO: return index if found, -1 if not found
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i] == target)
+        {
+            return i;
+        }
+    }
     return -1;
 }
 
